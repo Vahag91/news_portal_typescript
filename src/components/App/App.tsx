@@ -1,34 +1,18 @@
-import React from "react";
-import Header from "../Header";
-
-import NewsCard from "../NewsCard";
-
-
-interface News {
-  id: number;
-  title: string;
-  image: string;
-  content: string;
-  pubDate: string;
-}
-
+import React from 'react'
+import Header from '../Header'
+import NewsCard from '../NewsCard'
 const App: React.FC = () => {
-
-
-  const news= {
-    id: 1,
-    title: '1 News Title',
-    image: "fffff",
-    content: 'Lorem ipsum dolor, sit amet',
-    pubDate: '17.03.2022',
-  }
-
   return (
     <div>
-    <Header/>
-    <NewsCard news={news}/>
+      <Header />
+      <NewsCard
+        id={2}
+        title="First News"
+        content='First news content text'
+        image='https://images.unsplash.com/photo-1631771970274-d7f0442bd28b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8&w=1000&q=80'
+        publishDate={(new Date()).toDateString()}
+      />
     </div>
   )
 }
-
 export default App
