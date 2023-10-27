@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './Header.module.css'
-
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
   
 const Header: React.FC = () => {
 
@@ -15,6 +15,7 @@ const Header: React.FC = () => {
                     <li>About us</li>
                 </ul>
             </nav>
+            <DropdownMenu/>
         </header>
     )
 }
