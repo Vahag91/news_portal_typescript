@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './DropdownMenu.module.css'
 
 
 
 const DropdownMenu: React.FC = () => {
 
+    const [userMenuTap, setUserMenuTap] = useState<boolean>(false)
+
+    const userMenuChange = (): void => {
+        setUserMenuTap(!userMenuTap)
+    }
     return (
-        <div>
+        <ul>
+            <li className={styles.mainLi}>
+                <a href="#"><img   onClick={userMenuChange} src="https://avatars.githubusercontent.com/u/98681?v=4" alt="profile" className={styles.image} /></a>
+              
+              { userMenuTap ? <ul className={styles.dropdown}>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Illustration</a></li>
+                    <li><a href="#">Iconography</a></li>
+                </ul> :null
 
-            <label htmlFor="names" id="profile-label">
-                <a href="#">
-                    <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D" alt="profile photo" style={{ width: "40px" }} />
-                </a>
-            </label>
-            <select name="names" id="names">
-                <option value="Tap">Tap</option>
-                <option value="Settings">Settings</option>
-                <option value="Profile">Profile</option>
-            </select>
+              }  
+            </li>
+        </ul>
 
-        </div>
     )
 }
 

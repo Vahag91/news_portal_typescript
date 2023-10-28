@@ -15,7 +15,7 @@ const Header: React.FC = () => {
                     <li>About us</li>
                 </ul>
             </nav>
-            <DropdownMenu/>
+        <DropdownMenu/>
         </header>
     )
 }
