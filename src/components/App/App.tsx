@@ -37,9 +37,53 @@ const App: React.FC = () => {
     }
   ]
 
+  const searchAutocomplite = [
+    {
+        text: "Application",
+        rating: 0.7
+    },
+    {
+        text: "Tenacity",
+        rating: 0.1
+    },
+    {
+        text: "Rage",
+        rating: 0.8
+    },
+    {
+        text: "Input",
+        rating: 0.4
+    },
+    {
+        text: "Service",
+        rating: 0.3
+    },
+    {
+
+        text: "Notebook",
+        rating: 0.9
+    },
+    {
+        text: "React",
+        rating: 0.5
+    },
+    {
+        text: "Angular",
+        rating: 0.6
+    },
+    {
+        text: "Javascript",
+        rating: 0.2
+    },
+    {
+        text: "Typescript",
+        rating: 0.2
+    }
+]
+
   return (
     <div>
-      <Header />
+      <Header searchAutocomplite={searchAutocomplite}/>
       <NewsList news={news} />
     </div>
   )

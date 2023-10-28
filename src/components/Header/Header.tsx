@@ -1,9 +1,15 @@
-import React from "react";
+import React  from "react";
 import styles from './Header.module.css'
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
-  
-const Header: React.FC = () => {
+import Search from "../Search";
 
+import { SearchProps } from "../Search/Search.interface";
+
+const Header: React.FC<SearchProps> = ({searchAutocomplite}) => {
+
+ 
+
+  
 
     return (
         <header className={styles.menu}>
@@ -15,7 +21,8 @@ const Header: React.FC = () => {
                     <li>About us</li>
                 </ul>
             </nav>
-        <DropdownMenu/>
+            <Search searchAutocomplite={searchAutocomplite}/>
+            <DropdownMenu />
         </header>
     )
 }
