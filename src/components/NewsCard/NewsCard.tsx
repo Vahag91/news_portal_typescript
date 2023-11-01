@@ -13,4 +13,5 @@ const NewsCard: React.FC<NewsCardProps> = ({ id, title, content, image, publishD
     </div>
   )
 }
+
 export default NewsCard

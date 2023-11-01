@@ -1,11 +1,8 @@
 import React from 'react'
 import Header from '../Header'
-import NewsList from '../NewsList/NewsList'
+import NewsList from '../NewsList'
 
 const App: React.FC = () => {
-
-
-
   const news = [
     {
       id: 1,
@@ -39,53 +36,29 @@ const App: React.FC = () => {
 
   const searchAutocomplite = [
     {
-        text: "Application",
-        rating: 0.7
+      text: "Hello",
+      rating: 0.3,
     },
     {
-        text: "Tenacity",
-        rating: 0.1
+      text: "test",
+      rating: 0.4,
     },
     {
-        text: "Rage",
-        rating: 0.8
+      text: "esim",
+      rating: 0.1,
     },
     {
-        text: "Input",
-        rating: 0.4
-    },
-    {
-        text: "Service",
-        rating: 0.3
-    },
-    {
-
-        text: "Notebook",
-        rating: 0.9
-    },
-    {
-        text: "React",
-        rating: 0.5
-    },
-    {
-        text: "Angular",
-        rating: 0.6
-    },
-    {
-        text: "Javascript",
-        rating: 0.2
-    },
-    {
-        text: "Typescript",
-        rating: 0.2
+      text: "barev",
+      rating: 0.8,
     }
-]
+  ]
 
   return (
     <div>
-      <Header searchAutocomplite={searchAutocomplite}/>
+      <Header items={searchAutocomplite} />
       <NewsList news={news} />
     </div>
   )
 }
+
 export default App

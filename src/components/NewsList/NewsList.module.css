@@ -1,6 +1,10 @@
-.newsList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+.list {
+  max-width: 1100px;
+  margin: 10px auto;
+  clear: both;
+}
+
+.card {
+  float: left;
+  margin: 10px;
 }
