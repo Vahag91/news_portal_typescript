@@ -1,8 +1,24 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React, { Suspense, lazy } from 'react'
+
+
 import Header from '../Header'
-import NewsList from '../NewsList'
+import Loading from '../Loading'
+const MainPage = lazy(()=>import("../../pages/MainPage"))
+const AboutPage = lazy(()=>import("../../pages/AboutPage"))
+const ContactPage = lazy(()=>import("../../pages/ContactPage"))
+const NewsPage = lazy(()=>import("../../pages/NewsPage"))
+
+
+
+
+
+
+
 
 const App: React.FC = () => {
+
+
   const news = [
     {
       id: 1,
@@ -54,10 +70,19 @@ const App: React.FC = () => {
   ]
 
   return (
-    <div>
+    <BrowserRouter>
       <Header items={searchAutocomplite} />
-      <NewsList news={news} />
-    </div>
+      <div>
+<Suspense fallback={<Loading/>}>
+        <Routes>
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/contact' element={<ContactPage />} />
+          <Route path='/article/:id' element={<NewsPage news={news} />} />
+          <Route path='/' element={<MainPage news={news} />} />
+        </Routes>
+        </Suspense>
+      </div>
+    </BrowserRouter>
   )
 }
 

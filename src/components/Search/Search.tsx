@@ -39,7 +39,7 @@ const Search: React.FC<SearchProps> = ({ items }) => {
 
 
   useEffect(() => {
-    console.log(inputRef);
+   
     const handleClick = () => {
 
       if(inputRef.current) {
