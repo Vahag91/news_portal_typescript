@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import styles from './Header.module.css'
-import Search from '../Search'
-import { SearchProps } from '../Search/Search.interface'
-import {Link} from "react-router-dom"
+import Search from 'components/Search'
+import { SearchProps } from 'components/Search/Search.interface'
+import { Link } from 'react-router-dom'
+import { FaSun } from "react-icons/fa6";
+import useTheme from 'theme/useTheme'
 
 const Header: React.FC<SearchProps> = ({ items }) => {
+  const { toggleTheme } = useTheme();
   const [isUserMenuOpen, setUserMenuOpen] = useState<boolean>(false)
 
   const toggleUserMenu = (): void => {
@@ -22,11 +25,13 @@ const Header: React.FC<SearchProps> = ({ items }) => {
             <Link to='/about'>About</Link>
           </li>
           <li>
-            <Link to='Contact'>Contact</Link>
+            <Link to='/contact'>Contact</Link>
           </li>
         </ul>
 
         <Search items={items} />
+
+        <button onClick={toggleTheme}><FaSun /></button>
 
         <div className={styles.userContainer}>
           <img

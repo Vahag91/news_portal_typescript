@@ -1,23 +1,19 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'styles/index.scss';
 
+import Header from 'components/Header';
+import Loading from 'components/Loading';
+import useTheme from 'theme/useTheme';
 
-import Header from '../Header'
-import Loading from '../Loading'
-const MainPage = lazy(()=>import("../../pages/MainPage"))
-const AboutPage = lazy(()=>import("../../pages/AboutPage"))
-const ContactPage = lazy(()=>import("../../pages/ContactPage"))
-const NewsPage = lazy(()=>import("../../pages/NewsPage"))
-
-
-
-
-
-
+const MainPage = lazy(() => import('pages/MainPage'))
+const AboutPage = lazy(() => import('pages/AboutPage'))
+const ContactPage = lazy(() => import('pages/ContactPage'))
+const NewsPage = lazy(() => import('pages/NewsPage'))
 
 
 const App: React.FC = () => {
-
+  const { theme } = useTheme();
 
   const news = [
     {
@@ -71,15 +67,16 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
-      <Header items={searchAutocomplite} />
-      <div>
-<Suspense fallback={<Loading/>}>
-        <Routes>
-          <Route path='/about' element={<AboutPage />} />
-          <Route path='/contact' element={<ContactPage />} />
-          <Route path='/article/:id' element={<NewsPage news={news} />} />
-          <Route path='/' element={<MainPage news={news} />} />
-        </Routes>
+      <div className={`app ${theme}`}>
+        <Header items={searchAutocomplite} />
+
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path='/about' element={<AboutPage />} />
+            <Route path='/contact' element={<ContactPage />} />
+            <Route path='/article/:id' element={<NewsPage news={news} />} />
+            <Route path='/' element={<MainPage news={news} />} />
+          </Routes>
         </Suspense>
       </div>
     </BrowserRouter>

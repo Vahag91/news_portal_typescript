@@ -1,4 +1,4 @@
-import { NewsCardProps } from "../NewsCard/NewsCard.interface";
+import { NewsCardProps } from "components/NewsCard/NewsCard.interface";
 
 export interface NewsListProps {
   news: NewsCardProps[]

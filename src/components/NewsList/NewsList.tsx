@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './NewsList.module.css'
-import NewsCard from '../NewsCard'
+import NewsCard from 'components/NewsCard'
 import { NewsListProps } from './NewsList.interface'
-import { NewsCardProps } from '../NewsCard/NewsCard.interface'
+import { NewsCardProps } from 'components/NewsCard/NewsCard.interface'
 
 const NewsList: React.FC<NewsListProps> = ({ news }) => {
   return (
@@ -10,7 +10,7 @@ const NewsList: React.FC<NewsListProps> = ({ news }) => {
 
       {
         news.map((item: NewsCardProps) => 
-          <div className={styles.card}><NewsCard {...item} /></div>
+          <div className={styles.card} key={item.id}><NewsCard {...item} /></div>
         )
       }
 
